@@ -62,10 +62,10 @@ userRouter.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, funct
         });
     }
     catch (e) {
-        console.log("signup error", console_1.error);
+        console.log("signup error", e);
         res.status(403).json({
             message: "error while signing up",
-            error: console_1.error
+            e
         });
         return;
     }
