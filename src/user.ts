@@ -44,13 +44,12 @@ userRouter.post("/signup", async (req, res) => {
                 message:"User already exists"
             })
             return;
-        } else {
-          await User.create({
-              email: email,
-              password: hashedpassword,
-              name: name
-          });
-        }
+        } 
+        await User.create({
+            email: email,
+            password: hashedpassword,
+            name: name
+        });
     } catch(e) {
         res.status(403).json({
             message: "error while signing up"
