@@ -10,6 +10,7 @@ const link_1 = require("./link");
 const cors_1 = __importDefault(require("cors"));
 const axios_1 = __importDefault(require("axios"));
 const app = (0, express_1.default)();
+const PORT = process.env.PORT || 4000;
 app.use(express_1.default.json());
 app.options("*", (0, cors_1.default)());
 app.use((0, cors_1.default)({
