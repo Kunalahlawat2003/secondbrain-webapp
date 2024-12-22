@@ -43,15 +43,26 @@ userRouter.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, funct
     const name = req.body.name;
     try {
         const hashedpassword = yield bcrypt_1.default.hash(password, 5);
-        yield db_1.User.create({
-            email: email,
-            password: hashedpassword,
-            name: name
+        const account = yield db_1.User.findOne({
+            email
         });
+        if (account) {
+            res.status(200).json({
+                message: "User already exists"
+            });
+            return;
+        }
+        else {
+            yield db_1.User.create({
+                email: email,
+                password: hashedpassword,
+                name: name
+            });
+        }
     }
     catch (e) {
         res.status(403).json({
-            message: "User already exists"
+            message: "error while signing up"
         });
         return;
     }
