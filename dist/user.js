@@ -57,16 +57,18 @@ userRouter.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, funct
             password: hashedpassword,
             name: name
         });
+        res.status(200).json({
+            message: "You are signed up"
+        });
     }
     catch (e) {
+        console.log("signup error", console_1.error);
         res.status(403).json({
-            message: "error while signing up"
+            message: "error while signing up",
+            error: console_1.error
         });
         return;
     }
-    res.status(200).json({
-        message: "You are signed up"
-    });
 }));
 //@ts-ignore
 userRouter.post("/signin", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
