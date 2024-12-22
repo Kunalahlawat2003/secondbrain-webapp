@@ -52,13 +52,11 @@ userRouter.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, funct
             });
             return;
         }
-        else {
-            yield db_1.User.create({
-                email: email,
-                password: hashedpassword,
-                name: name
-            });
-        }
+        yield db_1.User.create({
+            email: email,
+            password: hashedpassword,
+            name: name
+        });
     }
     catch (e) {
         res.status(403).json({
