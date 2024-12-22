@@ -7,6 +7,7 @@ import cors from "cors";
 import path from "path";
 import axios from "axios";
 
+const PORT = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
 app.options("*", cors());
@@ -36,7 +37,6 @@ function reloadWebsite() {
 
 setInterval(reloadWebsite, interval);
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(Server running on port ${PORT});
 });
