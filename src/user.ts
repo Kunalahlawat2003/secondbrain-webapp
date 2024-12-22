@@ -50,19 +50,19 @@ userRouter.post("/signup", async (req, res) => {
             password: hashedpassword,
             name: name
         });
+
+        res.status(200).json({
+            message:"You are signed up"
+        })
     } catch(e) {
+        console.log("signup error", error)
         res.status(403).json({
-            message: "error while signing up"
+            message: "error while signing up",
+            error
         })
         return;
     } 
-
-    res.status(200).json({
-        message:"You are signed up"
-    })
-    
 })
-
 //@ts-ignore
 userRouter.post("/signin", async (req, res) => {
     const email = req.body.email;
