@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 4000;
 app.use(express_1.default.json());
 app.options("*", (0, cors_1.default)());
 app.use((0, cors_1.default)({
-    origin: "*",
+    origin: 'https://secondbrain-webapp-rosy.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 app.use("/api/v1/user", user_1.userRouter);
 app.use("/api/v1/content", content_1.contentRouter);
