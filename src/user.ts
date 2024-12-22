@@ -36,15 +36,24 @@ userRouter.post("/signup", async (req, res) => {
 
     try{
         const hashedpassword = await bcrypt.hash(password, 5);
-
-        await User.create({
-            email: email,
-            password: hashedpassword,
-            name: name
-        });
+        const account = await User.findOne({
+            email
+        })
+        if(account) {
+            res.status(200).json({
+                message:"User already exists"
+            })
+            return;
+        } else {
+          await User.create({
+              email: email,
+              password: hashedpassword,
+              name: name
+          });
+        }
     } catch(e) {
         res.status(403).json({
-            message: "User already exists"
+            message: "error while signing up"
         })
         return;
     } 
