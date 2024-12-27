@@ -22,7 +22,7 @@ app.use("/api/v1/user", user_1.userRouter);
 app.use("/api/v1/content", content_1.contentRouter);
 app.use("/api/v1/link", link_1.LinkRouter);
 app.use("/api/v1", health_1.healthRouter);
-const url = `https://secondbrain-backend-rcc4p0sdc-kunalahlawats-projects.vercel.app/api/v1/health`; // Replace with your Render URL
+const url = `https://secondbrain-webapp.onrender.com/api/v1/health`; // Replace with your Render URL
 const interval = 30000; // Interval in milliseconds (30 seconds)
 function reloadWebsite() {
     axios_1.default.get(url)
