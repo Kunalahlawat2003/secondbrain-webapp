@@ -26,7 +26,7 @@ app.use("/api/v1/link", LinkRouter);
 
 app.use("/api/v1", healthRouter);
 
-const url = `https://secondbrain-backend-rcc4p0sdc-kunalahlawats-projects.vercel.app/api/v1/health`; // Replace with your Render URL
+const url = `https://secondbrain-webapp.onrender.com/api/v1/health`; // Replace with your Render URL
 const interval = 30000; // Interval in milliseconds (30 seconds)
 
 function reloadWebsite() {
